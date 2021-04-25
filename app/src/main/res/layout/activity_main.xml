@@ -6,11 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-
-
-
-
         >
 
         <LinearLayout
@@ -81,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
 
-                android:text="Желанный вес"
+                android:text="Нормальный вес"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="@color/grey"
@@ -171,14 +166,50 @@
             />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/targen_last"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/kkal_counter_total"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp">
 
+        <TextView
+            android:id="@+id/target_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="До цели осталось :"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textColor="@color/teal_700"
+            android:textSize="15sp"
+
+            />
+        <TextView
+            android:id="@+id/target_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:text="@string/target_kg"
+            android:layout_marginLeft="25dp"
+            android:textSize="15sp"
+            android:textColor="@color/teal_700"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            />
+
+    </LinearLayout>
     <TextView
         android:id="@+id/Activitii"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/kkal_counter_total"
+        android:layout_below="@+id/targen_last"
         android:layout_centerInParent="true"
-        android:layout_marginTop="15dp"
+
 
 
         android:text="Активность:"

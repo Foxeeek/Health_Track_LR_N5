@@ -4,4 +4,6 @@
     <string name="Second_weight">30 Кг</string>
     <string name="Kkal_out">1000 Ккал</string>
     <string name="day_target">1500 Ккал</string>
+    <string name="target_kg">20 Кг</string>
+
 </resources>
