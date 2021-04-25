@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Health_Track</string>
+    <string name="app_name">Health Tracker</string>
+    <string name="Current_weight">50 Кг</string>
+    <string name="Second_weight">30 Кг</string>
+    <string name="Kkal_out">1000 Ккал</string>
+    <string name="day_target">1500 Ккал</string>
 </resources>

@@ -1,18 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+
+
+
+
+        >
+
+        <LinearLayout
+            android:id="@+id/Total_Current_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Current_weight_count"
+
+                android:layout_gravity="center"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text='@string/Current_weight'
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="@color/red"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Current_weight_Text"
+                android:layout_gravity="center"
+
+                android:text="Текущий вес"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/grey"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Total_Second_weight"
+            android:orientation="vertical"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentRight="true"
+
+
+            >
+
+            <TextView
+                android:id="@+id/Second_weight_Count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:text="@string/Second_weight"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@color/green"
+                />
+            <TextView
+                android:id="@+id/Second_weight_Text"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:text="Желанный вес"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@color/grey"
+                />
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/kkal_counter_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/Total_Current_weight"
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/kkal_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:text="Потрачено калорий:"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:textColor="@color/black"
+
+                />
+
+            <TextView
+                android:id="@+id/kkal_free"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:text="@string/Kkal_out"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="italic"
+                />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/kkal_target_counter_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/Total_Current_weight"
+        android:orientation="vertical"
+        android:layout_alignParentRight="true">
+
+        <TextView
+            android:id="@+id/kkal_target_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:text="Цель на день:"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:id="@+id/kkal_target_free"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:text="@string/day_target"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/Activitii"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/kkal_counter_total"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+
+
+        android:text="Активность:"
+        android:textStyle="italic"
+        android:textSize="35sp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec_activ"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/Activitii"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+        android:src="@drawable/ic_add"
+        android:backgroundTint="@color/yelow"
+        app:borderWidth="0dp"/>
+
+
+</RelativeLayout>
+
