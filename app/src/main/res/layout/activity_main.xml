@@ -81,23 +81,14 @@
                 android:textSize="15sp"
                 android:textColor="@color/grey"
                 />
-
-
-
-
-
-
         </LinearLayout>
-
-
-
-
 
     <LinearLayout
         android:id="@+id/kkal_counter_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+
         android:layout_marginTop="15dp"
         android:layout_marginLeft="20dp"
         android:layout_below="@+id/Total_Current_weight"
@@ -221,7 +212,7 @@
         android:id="@+id/rec_activ"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
+        android:layout_margin="15dp"
         android:layout_below="@+id/Activitii"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
