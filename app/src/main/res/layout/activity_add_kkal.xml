@@ -68,7 +68,7 @@
                 android:drawableStart="@drawable/food_selector"
                 android:drawablePadding="12dp"
                 android:maxLines="1"
-                android:inputType="numberDecimal"/>
+                android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
         <Button
             android:id="@+id/addActiv"

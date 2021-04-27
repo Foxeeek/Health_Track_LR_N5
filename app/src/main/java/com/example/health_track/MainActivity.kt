@@ -6,13 +6,16 @@ import android.content.pm.ActivityInfo
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -100,6 +103,30 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    private fun undoDelete(){
+        GlobalScope.launch {
+            db.aktivDao().insertAll(deletedAktiv)
+
+            aktivs = oldaktivs
+            runOnUiThread {
+                aktivsAdapter.setData(aktivs)
+                updateDashboard()
+            }
+        }
+    }
+
+    private fun showSackbar(){
+    val view  = findViewById<View>(R.id.coordinator)
+        val snackbar = Snackbar.make(view,"Елемент удалён!",Snackbar.LENGTH_LONG)
+        snackbar.setAction("Undo"){
+            undoDelete()
+        }
+            .setActionTextColor(ContextCompat.getColor(this,R.color.red))
+            .setTextColor(ContextCompat.getColor(this,R.color.white))
+            .show()
+    }
+
     private fun deleteAktiv(aktiv: Aktiv){
         deletedAktiv = aktiv
         oldaktivs = aktivs
@@ -111,6 +138,8 @@ class MainActivity : AppCompatActivity() {
 
             runOnUiThread {
                 updateDashboard()
+                aktivsAdapter.setData(aktivs)
+                showSackbar()
             }
         }
     }
