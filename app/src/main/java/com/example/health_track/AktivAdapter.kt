@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
-class AktivAdapter(private  val Aktiv: ArrayList<Aktiv> ):
+class AktivAdapter(private  var Aktiv: List<Aktiv> ):
         RecyclerView.Adapter<AktivAdapter.AktivHolder>() {
 
     class AktivHolder(view: View): RecyclerView.ViewHolder(view){
@@ -38,6 +38,11 @@ class AktivAdapter(private  val Aktiv: ArrayList<Aktiv> ):
 
     override fun getItemCount(): Int {
         return Aktiv.size
+    }
+    fun setData(Aktiv: List<Aktiv>){
+        this.Aktiv = Aktiv
+        notifyDataSetChanged()
+
     }
 
 }

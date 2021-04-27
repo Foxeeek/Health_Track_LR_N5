@@ -8,14 +8,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var aktivs : ArrayList<Aktiv>
+    private lateinit var deletedAktiv: Aktiv
+    private lateinit var aktivs : List<Aktiv>
+    private lateinit var oldaktivs : List<Aktiv>
     private lateinit var aktivsAdapter: AktivAdapter
     private lateinit var linearlayoutManager: LinearLayoutManager
+    private lateinit var db : AppDatabase
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,21 +33,10 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.rec_activ)
         val plusBtn : FloatingActionButton = findViewById(R.id.plusBtn)
 
+        db = Room.databaseBuilder(this,AppDatabase::class.java,"aktiv").build()
 
-        aktivs = arrayListOf(
-                Aktiv("Пробежка",-250.00),
-                Aktiv("Курица",300.00),
-                Aktiv("Курица",300.00),
-                Aktiv("Курица",300.00),
-                Aktiv("Курица",300.00),
-                Aktiv("Турник",-500.00),
-                Aktiv("Турник",-500.00),
-                Aktiv("Турник",-500.00),
-                Aktiv("Турник",-500.00),
-                Aktiv("Турник",-500.00),
-                Aktiv("Турник",-500.00)
 
-        )
+        aktivs = arrayListOf()
 
         aktivsAdapter = AktivAdapter(aktivs)
         linearlayoutManager = LinearLayoutManager(this)
@@ -51,7 +47,24 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        updateDashboard()
+//        swipe to remove
+        val itemTochHelper = object : ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT){
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+               deleteAktiv(aktivs[viewHolder.adapterPosition])
+            }
+
+        }
+
+        val swipeHelper = ItemTouchHelper(itemTochHelper)
+        swipeHelper.attachToRecyclerView(recyclerView)
 
         plusBtn.setOnClickListener {
             val intent = Intent(this, AddKkalActivity::class.java )
@@ -59,7 +72,16 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    private fun fetchAll(){
+        GlobalScope.launch {
+            aktivs = db.aktivDao().getAll()
 
+            runOnUiThread {
+                updateDashboard()
+                aktivsAdapter.setData(aktivs)
+            }
+        }
+    }
     private fun updateDashboard(){
         val totalVeight = aktivs.map { it.amount }.sum()
 
@@ -76,6 +98,27 @@ class MainActivity : AppCompatActivity() {
 
         Kkallost.text = "%.2f Ккал".format(Math.abs(totalVeight  ))
 
+    }
+
+    private fun deleteAktiv(aktiv: Aktiv){
+        deletedAktiv = aktiv
+        oldaktivs = aktivs
+
+        GlobalScope.launch {
+            db.aktivDao().delete(aktiv)
+
+            aktivs = aktivs.filter { it.id != aktiv.id }
+
+            runOnUiThread {
+                updateDashboard()
+            }
+        }
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        fetchAll()
     }
 
 }

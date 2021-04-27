@@ -5,8 +5,11 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.core.widget.addTextChangedListener
+import androidx.room.Room
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class AddKkalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,12 +43,22 @@ class AddKkalActivity : AppCompatActivity() {
             if (label.isEmpty()) {
                 labelLayout.error = "Пожалуйста , введите настоящие значение"
             }
-            if (Kkal == null) {
+            else if (Kkal == null) {
                 KkalLayout.error = "Пожалуйста , введите настоящие значение"
+            } else {
+                val aktiv = Aktiv(0,label,Kkal,"")
+                insert(aktiv)
             }
         }
 
         CloseButton.setOnClickListener {
+            finish()
+        }
+    }
+    private fun insert(aktiv: Aktiv){
+    val db = Room.databaseBuilder(this,AppDatabase::class.java,"aktiv").build()
+        GlobalScope.launch {
+            db.aktivDao().insertAll(aktiv)
             finish()
         }
     }
