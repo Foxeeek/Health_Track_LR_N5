@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED)
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED)
 
         val recyclerView = findViewById<RecyclerView>(R.id.rec_activ)
         val plusBtn : FloatingActionButton = findViewById(R.id.plusBtn)
