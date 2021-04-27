@@ -37,8 +37,9 @@ class MainActivity : AppCompatActivity() {
                 Aktiv("Турник",-500.00),
                 Aktiv("Турник",-500.00),
                 Aktiv("Турник",-500.00),
-                Aktiv("Пробежка",-250.00),
-                Aktiv("Хотьба",-50.00)
+                Aktiv("Турник",-500.00),
+                Aktiv("Турник",-500.00)
+
         )
 
         aktivsAdapter = AktivAdapter(aktivs)
