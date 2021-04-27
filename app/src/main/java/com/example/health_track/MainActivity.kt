@@ -118,7 +118,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showSackbar(){
     val view  = findViewById<View>(R.id.coordinator)
-        val snackbar = Snackbar.make(view,"Елемент удалён!",Snackbar.LENGTH_LONG)
+        val snackbar = Snackbar.make(view,"Элемент удалён!",Snackbar.LENGTH_LONG)
         snackbar.setAction("Undo"){
             undoDelete()
         }
