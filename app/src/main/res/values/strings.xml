@@ -6,7 +6,13 @@
     <string name="day_target">1500 Ккал</string>
     <string name="target_kg">20 Кг</string>
     <string name="add_actyv">Добавить активность</string>
+    <string name="update_actyv">Обновить активность</string>
 
+    <string name="Main_menu">Главная страница</string>
+    <string name="Person_prop">Параметры тела</string>
+    <string name="Statistic">Статистика</string>
+    <string name="IBV">ИМТ калькулятор</string>
+    <string name="Setting">Настройки</string>
 
 
 </resources>

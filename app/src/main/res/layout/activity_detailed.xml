@@ -4,24 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddKkalActivity">
+    android:id="@+id/rootView"
+    tools:context=".DetailedActivity">
 
 
     <ImageButton
         android:id="@+id/CloBtn"
         android:layout_width="34dp"
         android:layout_height="34dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:padding="15dp"
         android:layout_margin="15dp"
-        android:background="@drawable/clouse_bg"/>
-
-
-
+        android:background="@drawable/clouse_bg"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -39,16 +38,17 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:hint="Текст"
+            app:boxStrokeWidth="0dp"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/labelInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/sport_selector"
                 android:drawablePadding="12dp"
+                android:inputType="text"
                 android:maxLines="1"
-                android:inputType="text"/>
+                android:textSize="26sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -59,6 +59,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:hint="Кол-во"
+            app:boxStrokeWidth="0dp"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -67,9 +68,11 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/food_selector"
                 android:drawablePadding="12dp"
+                android:inputType="text"
                 android:maxLines="1"
-                android:inputType="text"/>
+                android:textSize="26sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/DescriptionLabel"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -78,30 +81,37 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:hint="Описание"
+            app:boxStrokeWidth="0dp"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/DescriptionInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/description_selector"
                 android:drawablePadding="12dp"
-                android:maxLines="1"
-                android:inputType="text"/>
+                android:textSize="26sp"
+                android:inputType="text"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
-        <Button
-            android:id="@+id/addActiv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
-            android:textColor="@color/white"
-            android:text="@string/add_actyv"
-            android:textStyle="italic"
-            />
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/updateActiv"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/update_actyv"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:layout_margin="12dp"
+        android:padding="10dp"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

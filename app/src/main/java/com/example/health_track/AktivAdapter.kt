@@ -1,5 +1,6 @@
 package com.example.health_track
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
@@ -34,6 +35,12 @@ class AktivAdapter(private  var Aktiv: List<Aktiv> ):
         }
 
         holder.gymnastic.text = aktivity.label
+        
+        holder.itemView.setOnClickListener { 
+            val intent = Intent(context, DetailedActivity::class.java)
+            intent.putExtra("aktivity",aktivity)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
