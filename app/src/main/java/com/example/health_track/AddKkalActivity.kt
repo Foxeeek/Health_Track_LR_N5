@@ -1,9 +1,12 @@
 package com.example.health_track
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.addTextChangedListener
 import androidx.room.Room
 import com.google.android.material.textfield.TextInputEditText
@@ -18,6 +21,7 @@ class AddKkalActivity : AppCompatActivity() {
 
         var addActiButton : Button = findViewById(R.id.addActiv)
         var CloseButton : ImageButton = findViewById(R.id.CloBtn)
+        var rootView : ConstraintLayout = findViewById(R.id.rootview)
 
         var labelLayout : TextInputLayout = findViewById(R.id.labelLayout)
         var labelInput : TextInputEditText = findViewById(R.id.labelInput)
@@ -27,6 +31,16 @@ class AddKkalActivity : AppCompatActivity() {
 
         var descriptionLayout : TextInputLayout = findViewById(R.id.DescriptionLabel)
         var descriptionInput : TextInputEditText = findViewById(R.id.DescriptionInput)
+
+
+
+
+        rootView.setOnClickListener{
+            this.window.decorView.clearFocus()
+
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(it.windowToken,0)
+        }
 
         labelInput.addTextChangedListener {
             if (it!!.count() > 0 )
