@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
+
+
         <LinearLayout
             android:id="@+id/Total_Current_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/Current_weight_count"
@@ -46,7 +50,7 @@
             android:id="@+id/Total_Second_weight"
             android:orientation="vertical"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:layout_alignParentRight="true"
             >
             <TextView
@@ -201,8 +205,19 @@
             android:src="@drawable/ic_add"
             android:backgroundTint="@color/yelow"
             app:borderWidth="0dp"/>
+
+
     </RelativeLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:layout_gravity="start"
+
+        app:menu="@menu/drawer_main_menu"
+        app:headerLayout="@layout/header_menu"/>
+</androidx.drawerlayout.widget.DrawerLayout>
 
 
 
@@ -210,22 +225,14 @@
 
 
 <!--<androidx.drawerlayout.widget.DrawerLayout-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="match_parent"-->
-<!--android:fitsSystemWindows="true"-->
-<!--tools:openDrawer="start">-->
-
-<!--<com.google.android.material.navigation.NavigationView-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:fitsSystemWindows="true"-->
-<!--    android:layout_gravity="start"-->
-<!--    app:menu="@menu/drawer_main_menu"-->
-<!--    app:headerLayout="@layout/header_menu"/>-->
+<!--            android:id="@+id/drawrtLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:fitsSystemWindows="true"-->
+<!--            tools:openDrawer="start">-->
 
 
-<!--</androidx.drawerlayout.widget.DrawerLayout>-->
-
+<!--        </androidx.drawerlayout.widget.DrawerLayout>-->
 
 
 

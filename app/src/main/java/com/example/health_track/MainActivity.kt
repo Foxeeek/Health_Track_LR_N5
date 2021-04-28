@@ -6,20 +6,25 @@ import android.content.pm.ActivityInfo
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.internal.NavigationMenuItemView
+import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
     private lateinit var deletedAktiv: Aktiv
     private lateinit var aktivs : List<Aktiv>
     private lateinit var oldaktivs : List<Aktiv>
@@ -28,17 +33,21 @@ class MainActivity : AppCompatActivity() {
     private lateinit var db : AppDatabase
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 //        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED)
+
+
 
         val recyclerView = findViewById<RecyclerView>(R.id.rec_activ)
         val plusBtn : FloatingActionButton = findViewById(R.id.plusBtn)
 
         db = Room.databaseBuilder(this,AppDatabase::class.java,"aktiv").build()
-
-
+//Прослушка нажатий меню
+        val nav_view : NavigationView = findViewById(R.id.nav_view)
+        nav_view.setNavigationItemSelectedListener (this)
+//---------------------------
         aktivs = arrayListOf()
 
         aktivsAdapter = AktivAdapter(aktivs)
@@ -148,6 +157,19 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         fetchAll()
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+            R.id.personProp_page_menu ->  startActivity(Intent(this, AddKkalActivity::class.java ))
+            R.id.Statistic_page_menu ->  startActivity(Intent(this, AddKkalActivity::class.java ))
+            R.id.IBV_page_menu ->  startActivity(Intent(this, AddKkalActivity::class.java ))
+            R.id.Setting_page_menu ->  startActivity(Intent(this, AddKkalActivity::class.java ))
+        }
+        findViewById<DrawerLayout>(R.id.coordinator).closeDrawer(GravityCompat.START)
+
+        return true
     }
 
 }
