@@ -14,5 +14,16 @@
     <string name="IBV">ИМТ калькулятор</string>
     <string name="Setting">Настройки</string>
 
+    <string name="BodyPropHeader">Вашы параметры</string>
+    <string name="Height">Ваш рост:</string>
+    <string name="WeightString">Ваш вес:</string>
+    <string name="AgeString">Ваш возраст:</string>
+    <string name="SexString">Ваш пол:</string>
+
+    <string name="IMTString">ИМТ :</string>
+    <string name="ToPerfectWeightString">До идеального веса :</string>
+    <string name="ButtonChangeString">Изменить параметры</string>
+    <string name="SaveButtonChangeString">Сохранить изменения</string>
+
 
 </resources>

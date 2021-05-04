@@ -19,6 +19,8 @@ class AddKkalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_kkal)
 
+
+
         var addActiButton : Button = findViewById(R.id.addActiv)
         var CloseButton : ImageButton = findViewById(R.id.CloBtn)
         var rootView : ConstraintLayout = findViewById(R.id.rootview)
@@ -31,7 +33,6 @@ class AddKkalActivity : AppCompatActivity() {
 
         var descriptionLayout : TextInputLayout = findViewById(R.id.DescriptionLabel)
         var descriptionInput : TextInputEditText = findViewById(R.id.DescriptionInput)
-
 
 
 

@@ -14,67 +14,135 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+            <LinearLayout
+                android:id="@+id/Total_Current_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_alignParentStart="true"
+                android:clickable="true">
+                <TextView
+                    android:id="@+id/Current_weight_count"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='0'
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:textColor="@color/red"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Current_weight_Text"
+                    android:layout_gravity="center"
+                    android:text="Текущий вес"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/grey"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/Total_Second_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:layout_marginEnd="40dp"
+                android:clickable="true">
+
+                <TextView
+                    android:id="@+id/Second_weight_Count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textColor="@color/green"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Second_weight_Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Нормальный вес"
+                    android:textColor="@color/grey"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/Total_Current_weight"
+            android:id="@+id/MyHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="69dp"
             android:layout_marginTop="15dp"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/Current_weight_count"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text='@string/Current_weight'
-                android:textStyle="bold"
-                android:textSize="30sp"
-                android:textColor="@color/red"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/Current_weight_Text"
-                android:layout_gravity="center"
-                android:text="Текущий вес"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="@color/grey"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Total_Second_weight"
             android:orientation="vertical"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="15dp"
-            android:layout_alignParentRight="true"
-            >
-            <TextView
-                android:id="@+id/Second_weight_Count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+            android:layout_below="@+id/Total_Second_weight"
+            android:clickable="true">
 
-                android:text="@string/Second_weight"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textColor="@color/green"
-                />
             <TextView
-                android:id="@+id/Second_weight_Text"
+                android:id="@+id/MyHeightCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Нормальный вес"
-                android:textStyle="bold"
-                android:textSize="15sp"
+                android:text="0"
+                android:textColor="@color/green"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/MyHeightLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Рост"
                 android:textColor="@color/grey"
-                />
+                android:textSize="15sp"
+                android:textStyle="bold" />
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/MyIMT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical"
+            android:layout_marginEnd="83dp"
+            android:layout_below="@+id/Total_Second_weight"
+            android:clickable="true">
+
+            <TextView
+                android:id="@+id/MyIMTCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0"
+                android:textColor="@color/green"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/MyIMTLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="ИМТ"
+                android:textColor="@color/grey"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
         <LinearLayout
             android:id="@+id/kkal_counter_total"
             android:layout_width="wrap_content"
@@ -82,7 +150,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="20dp"
-            android:layout_below="@+id/Total_Current_weight"
+            android:layout_below="@+id/MyHeight"
             android:orientation="vertical"
             android:layout_alignParentLeft="true">
             <TextView
@@ -114,8 +182,9 @@
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:layout_marginRight="20dp"
-            android:layout_below="@+id/Total_Current_weight"
+            android:layout_below="@+id/MyHeight"
             android:orientation="vertical"
+            android:clickable="true"
             android:layout_alignParentRight="true">
             <TextView
                 android:id="@+id/kkal_target_counter"
@@ -132,7 +201,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/day_target"
+                android:text="0"
                 android:textSize="20sp"
                 android:textColor="@color/black"
                 android:textStyle="italic"
@@ -165,7 +234,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
 
-                android:text="@string/target_kg"
+                android:text="20"
                 android:layout_marginLeft="25dp"
                 android:textSize="15sp"
                 android:textColor="@color/teal_700"
@@ -218,25 +287,6 @@
         app:menu="@menu/drawer_main_menu"
         app:headerLayout="@layout/header_menu"/>
 </androidx.drawerlayout.widget.DrawerLayout>
-
-
-
-
-
-
-<!--<androidx.drawerlayout.widget.DrawerLayout-->
-<!--            android:id="@+id/drawrtLayout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:fitsSystemWindows="true"-->
-<!--            tools:openDrawer="start">-->
-
-
-<!--        </androidx.drawerlayout.widget.DrawerLayout>-->
-
-
-
-
 
 
 

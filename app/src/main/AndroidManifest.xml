@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Health_Track">
-        <activity android:name=".DetailedActivity"></activity>
+        <activity android:name=".StatisticActivity"></activity>
+        <activity android:name=".ChangeBodyPropertis" />
+        <activity android:name=".BodyPropertyActivity" />
+        <activity android:name=".DetailedActivity" />
         <activity android:name=".AddKkalActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
