@@ -258,7 +258,7 @@ fun ChangeTarget(){
             TargetOfTheDay = TempTarget
             saveDataTarget(TempTarget)
         } catch (e: NumberFormatException) {
-            showdialogHeight()
+            ChangeTarget()
         }
 
 
