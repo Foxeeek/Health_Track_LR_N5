@@ -15,7 +15,7 @@
 
         <item android:title="@string/IBV"
             android:id="@+id/IBV_page_menu"
-            android:icon="@drawable/ic_baseline_calculate_24"/>
+            android:icon="@drawable/description_selector"/>
 
         <item android:title="@string/Setting"
             android:id="@+id/Setting_page_menu"

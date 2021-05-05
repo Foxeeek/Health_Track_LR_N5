@@ -3,10 +3,12 @@ package com.example.health_track
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.ActivityInfo
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
+import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
@@ -45,7 +47,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED)
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED)
 
 
         pref = getSharedPreferences("Body", MODE_PRIVATE)
@@ -192,21 +194,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId){
-//            R.id.personProp_page_menu ->  {
-//                finish()
-//                startActivity(Intent(this, BodyPropertyActivity::class.java ))
-//            }
+
             R.id.Statistic_page_menu ->  {
                 finish()
                 startActivity(Intent(this, StatisticActivity::class.java ))
             }
-            R.id.IBV_page_menu ->  {
-                startActivity(Intent(this, AddKkalActivity::class.java ))
-            }
-            R.id.Setting_page_menu ->  {
-                finish()
-                startActivity(Intent(this, AddKkalActivity::class.java ))
-            }
+            R.id.IBV_page_menu ->  Toast.makeText(this,"Скоро будет ))" , Toast.LENGTH_SHORT).show()
+            R.id.Setting_page_menu ->  Toast.makeText(this,"Скоро будет ))" , Toast.LENGTH_SHORT).show()
         }
         findViewById<DrawerLayout>(R.id.coordinator).closeDrawer(GravityCompat.START)
 
@@ -247,7 +241,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //    Зміна цілі на день
 fun ChangeTarget(){
     val builder: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this)
-    builder.setTitle("Введите вашу цеоль на день")
+    builder.setTitle("Введите вашу цель на день")
 
 // Set up the input
     val target = EditText(this)
