@@ -1,6 +1,7 @@
 package com.example.health_track
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
@@ -18,6 +19,7 @@ class StatisticActivity : AppCompatActivity() , NavigationView.OnNavigationItemS
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_statistic)
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED)
 
         val MyXArray = arrayOf(1,2,3,4,5,6,7)
         val MyYArray  = arrayOf(2,8,6,7,5,7,12)
