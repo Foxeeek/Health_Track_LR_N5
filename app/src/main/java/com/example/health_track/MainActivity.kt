@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     var MyWeight : Int = 0
     var TargetOfTheDay : Int = 0
     var pref : SharedPreferences? = null
-//    private lateinit var body : BodyPropertyActivity
 
 
     override fun onCreate(savedInstanceState: Bundle?){
