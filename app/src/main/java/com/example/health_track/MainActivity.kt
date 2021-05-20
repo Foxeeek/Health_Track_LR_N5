@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
+import com.example.health_track.authorithation.MainAuthorithation
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
@@ -37,10 +38,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var linearlayoutManager: LinearLayoutManager
     private lateinit var db : AppDatabase
 
+    var startAutorithation = 0
     var MyHeight : Int = 0
     var MyWeight : Int = 0
     var TargetOfTheDay : Int = 0
     var pref : SharedPreferences? = null
+
 
 
     override fun onCreate(savedInstanceState: Bundle?){
@@ -50,6 +53,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
         pref = getSharedPreferences("Body", MODE_PRIVATE)
+
+
+
+        startAutorithation = pref?.getInt("start",0)!!
+
+
+
+        if (startAutorithation == 0){
+            startActivity(Intent(this, MainAuthorithation::class.java ))
+            startAutorithation = 1
+            finish()
+            stopAutorithation()
+        }
+
+
+
 
         MyHeight = pref?.getInt("height",0)!!
         MyWeight = pref?.getInt("weight",0)!!
@@ -355,6 +374,17 @@ fun ChangeTarget(){
     }
 
 
+    fun stopAutorithation(){
+        val editor = pref?.edit()
+        val intent = intent.getIntExtra("logIn",0)
+        if (intent == 1){
+            editor?.putInt("start",1)
+            editor?.apply()
+        }else{
+            editor?.putInt("start",0)
+            editor?.apply()
+        }
+    }
 
 
 
