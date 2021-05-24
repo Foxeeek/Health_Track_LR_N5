@@ -20,6 +20,9 @@
         <item android:title="@string/Setting"
             android:id="@+id/Setting_page_menu"
             android:icon="@drawable/ic_setting"/>
+        <item android:title="@string/Menu_Exit"
+            android:id="@+id/Exit_menu"
+            android:icon="@drawable/ic_logout"/>
 
 
     </group>

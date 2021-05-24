@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Health_Track">
-        <activity android:name=".authorithation.MainAuthorithation"/>
+        <activity android:name=".authorization.RegisterActivity"></activity>
         <activity android:name=".StatisticActivity" />
         <activity android:name=".DetailedActivity" />
         <activity android:name=".AddKkalActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".authorithation.MainAuthorithation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

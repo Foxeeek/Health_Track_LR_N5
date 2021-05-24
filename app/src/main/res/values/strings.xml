@@ -9,10 +9,10 @@
     <string name="update_actyv">Обновить активность</string>
 
     <string name="Main_menu">Главная страница</string>
-    <string name="Person_prop">Параметры тела</string>
     <string name="Statistic">Статистика</string>
     <string name="IBV">Каталог диет</string>
     <string name="Setting">Настройки</string>
+    <string name="Menu_Exit">Выйти</string>
 
     <string name="BodyPropHeader">Вашы параметры</string>
     <string name="Height">Ваш рост:</string>

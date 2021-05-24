@@ -26,6 +26,8 @@ import com.example.health_track.authorithation.MainAuthorithation
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.lang.NumberFormatException
@@ -38,7 +40,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var linearlayoutManager: LinearLayoutManager
     private lateinit var db : AppDatabase
 
-    var startAutorithation = 0
     var MyHeight : Int = 0
     var MyWeight : Int = 0
     var TargetOfTheDay : Int = 0
@@ -53,23 +54,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
         pref = getSharedPreferences("Body", MODE_PRIVATE)
-
-
-
-        startAutorithation = pref?.getInt("start",0)!!
-
-
-
-        if (startAutorithation == 0){
-            startActivity(Intent(this, MainAuthorithation::class.java ))
-            startAutorithation = 1
-            finish()
-            stopAutorithation()
-        }
-
-
-
-
         MyHeight = pref?.getInt("height",0)!!
         MyWeight = pref?.getInt("weight",0)!!
         TargetOfTheDay = pref?.getInt("target",0)!!
@@ -219,6 +203,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.IBV_page_menu ->  Toast.makeText(this,"Скоро будет ))" , Toast.LENGTH_SHORT).show()
             R.id.Setting_page_menu ->  Toast.makeText(this,"Скоро будет ))" , Toast.LENGTH_SHORT).show()
+            R.id.Exit_menu -> {
+                Firebase.auth.signOut()
+                finish()
+                startActivity(Intent(this, MainAuthorithation::class.java ))
+            }
         }
         findViewById<DrawerLayout>(R.id.coordinator).closeDrawer(GravityCompat.START)
 
@@ -374,17 +363,6 @@ fun ChangeTarget(){
     }
 
 
-    fun stopAutorithation(){
-        val editor = pref?.edit()
-        val intent = intent.getIntExtra("logIn",0)
-        if (intent == 1){
-            editor?.putInt("start",1)
-            editor?.apply()
-        }else{
-            editor?.putInt("start",0)
-            editor?.apply()
-        }
-    }
 
 
 

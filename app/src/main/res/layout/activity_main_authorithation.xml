@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".authorithation.MainAuthorithation">
+    tools:context=".authorithation.MainAuthorithation"
+    android:id="@+id/screenmainauth">
 
 
 
@@ -16,44 +17,146 @@
 
         <LinearLayout
             android:id="@+id/choseTypeAuthor"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:padding="5dp"
-            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:layout_above="@+id/logn"
+
+
             >
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Пожалуйста выберите способ авторизации:"
-                android:textSize="16sp"
+                android:text="Авторизация:"
+                android:textSize="24sp"
                 android:textColor="@color/cardview_dark_background"
                 android:layout_gravity="center"
                 />
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/logn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            android:layout_centerVertical="true"
+            >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/labelLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:hint="Логин"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/LoginInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_label"
+                android:drawablePadding="12dp"
+                android:maxLines="1"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            android:layout_below="@+id/logn"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/PassLabel"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:hint="Пароль"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/PassInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_key"
+                    android:drawablePadding="12dp"
+                    android:maxLines="1"
+                    android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
 
 
-        <Button
-            android:id="@+id/signInButton"
-            android:layout_below="@+id/choseTypeAuthor"
+        <LinearLayout
+            android:id="@+id/chouse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Вход через Gmail"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="5dp"/>
+            android:weightSum="2"
+            android:layout_below="@+id/Pass"
+            android:layout_centerHorizontal="true">
+
+            <Button
+                android:id="@+id/InButton"
+                android:layout_below="@+id/Pass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Войти"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:layout_weight="0.6"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"/>
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_below="@+id/Pass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Регистрация"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:layout_weight="0.6"/>
+
+        </LinearLayout>
+
+
+
+
         <TextView
             android:id="@+id/noSignIn"
-            android:layout_below="@+id/signInButton"
+            android:layout_below="@+id/chouse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Продолжить без авторизации"
             android:textColor="@color/grey"
             android:clickable="true"
-            android:layout_centerHorizontal="true"/>
-
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"/>
 
 
     </RelativeLayout>
