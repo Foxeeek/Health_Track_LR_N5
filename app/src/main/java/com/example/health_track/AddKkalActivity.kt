@@ -1,11 +1,11 @@
 package com.example.health_track
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.addTextChangedListener
 import androidx.room.Room
@@ -34,13 +34,13 @@ class AddKkalActivity : AppCompatActivity() {
         var descriptionLayout : TextInputLayout = findViewById(R.id.DescriptionLabel)
         var descriptionInput : TextInputEditText = findViewById(R.id.DescriptionInput)
 
-
+        //the bulk of the code the make sure we are using opengl2 is in the extended glsurfaceview.
 
         rootView.setOnClickListener{
             this.window.decorView.clearFocus()
 
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(it.windowToken,0)
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
         }
 
         labelInput.addTextChangedListener {
@@ -67,7 +67,7 @@ class AddKkalActivity : AppCompatActivity() {
             else if (Kkal == null) {
                 KkalLayout.error = "Пожалуйста , введите настоящие значение"
             } else {
-                val aktiv = Aktiv(0,label,Kkal,description)
+                val aktiv = Aktiv(0, label, Kkal, description)
                 insert(aktiv)
             }
         }
@@ -77,7 +77,7 @@ class AddKkalActivity : AppCompatActivity() {
         }
     }
     private fun insert(aktiv: Aktiv){
-    val db = Room.databaseBuilder(this,AppDatabase::class.java,"aktiv").build()
+    val db = Room.databaseBuilder(this, AppDatabase::class.java, "aktiv").build()
         GlobalScope.launch {
             db.aktivDao().insertAll(aktiv)
             finish()

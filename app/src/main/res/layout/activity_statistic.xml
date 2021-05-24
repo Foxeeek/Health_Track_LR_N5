@@ -12,6 +12,7 @@
        android:layout_height="match_parent"
        >
        <LinearLayout
+           android:id="@+id/LinearGraphLayout"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content">
 
@@ -19,7 +20,21 @@
                android:accessibilityPaneTitle="@string/SaveButtonChangeString"
                android:layout_width="match_parent"
                android:layout_height="200dip"
-               android:id="@+id/graph" />
+               android:id="@+id/LinearGraph" />
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:id="@+id/BarGraphLayout"
+           android:layout_below="@+id/LinearGraphLayout"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+
+           <com.jjoe64.graphview.GraphView
+               android:accessibilityPaneTitle="@string/SaveButtonChangeString"
+               android:layout_width="match_parent"
+               android:layout_height="200dip"
+               android:id="@+id/BarGraph" />
 
        </LinearLayout>
 
